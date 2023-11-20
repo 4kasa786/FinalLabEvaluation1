@@ -1,0 +1,22 @@
+fibonacci() {
+    if [ $1 -le 1 ]; then
+        echo $1
+    else
+        a=$(($1 - 1))
+        b=$(($1 - 2))
+        echo $(( $(fibonacci $a) + $(fibonacci $b) ))
+    fi
+}
+
+# Get user input for the length of the Fibonacci series
+echo -n "Enter the length of Fibonacci series: "
+read length
+
+# Print Fibonacci series using recursion
+echo "Fibonacci series:"
+for ((i = 0; i < length; i++)); do
+    result=$(fibonacci $i)
+    echo -n "$result "
+done
+
+echo
